@@ -6,38 +6,44 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, {Component} from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 
-class Comptador extends Component {
-  state = { compta: 0 };
+export class Comptador extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      valor: 0,
+    };
+  }
 
   componentDidMount() {
     setInterval(() => {
-      this.setState({ compta: this.state.compta + 1 });
+      this.setState({valor: this.state.valor + 1});
     }, 1000);
   }
-
+  
   render() {
-    const { compta } = this.state;
-    const { color, size } = this.props;
-
     return (
-      <Text style={{ color, fontSize: size }}>
-        {compta}
-      </Text>
-    )
+      <View>
+        <Text style={{color: this.props.color, fontSize: this.props.tamany}}>
+          {this.state.valor}
+        </Text>
+      </View>
+    );
   }
+  
+  
 }
 
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Comptador color={'lightblue'} size={16} />
-        <Comptador color={'skyblue'} size={32} />
-        <Comptador color={'steelblue'} size={80} />
-        <Comptador color={'darkblue'} size={140} />
+        <Comptador color={'red'} tamany={30} />
+        <Comptador color={'green'} tamany={60} />
+        <Comptador color={'yellow'} tamany={90} />
+        <Comptador color={'darkblue'} tamany={120} />
       </View>
     );
   }
