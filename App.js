@@ -38,7 +38,7 @@ export class Comptador extends Component {
   }
   //Posem el mètode del cicle de vida dins la classe del component
   componentDidMount() {
-    this.engegaComptador();
+    //this.engegaComptador();
   }
 
   //Altre mètode del cicle de vida del component
